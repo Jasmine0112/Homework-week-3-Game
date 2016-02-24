@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hangman</title>
+</head>
+<body>
+
+<div id="game">
+
+</div>
+
+
+
+<script type="text/javascript">
+
+var userGuessCount = 0;
+var userIncorrectGuessCount = 0;
+
+
+var libraryOfWords = ['apple', 'cat', 'surface', 'cookie', 'sneeze', 'coding'];
+
+var randomWordIndex = Math.floor(Math.random()*libraryOfWords.length);
+
+var randomWord = libraryOfWords[randomWordIndex];
+
+var guessContainer = [];
+
+for(i=0; i<randomWord.length; i++){
+    guessContainer[i]='_';
+
+}
+
+var randomWordArray = randomWord.split("");
+
+console.log(randomWordArray);
+
+console.log(guessContainer);
+
+document.onkeyup = function(event) {
+
+
+var letterPressed = String.fromCharCode(event.keyCode);
+console.log(letterPressed);
+
+userGuessCount=userGuessCount+1;
+
+for(i=0;i<randomWordArray.length;i++){
+
+    letterPressed=letterPressed.toLowerCase();
+    if(randomWordArray[i]===letterPressed){
+
+        guessContainer[i]=letterPressed;
+
+        console.log(guessContainer);
+        console.log(randomWordArray);
+
+    }else{
+//        userIncorrectGuessCount=userIncorrectGuessCount+1;
+//        console.log('userIncorrectGuessCount='+userIncorrectGuessCount);
+
+    }
+
+
+}
+
+var currentGuessContainerString = guessContainer.toString();
+var randomWordArrayString = randomWordArray.toString();
+
+console.log(currentGuessContainerString);
+console.log(randomWordArrayString);
+
+if(currentGuessContainerString===randomWordArrayString){
+    alert("you win!");
+}
+
+
+
+
+
+}
+
+
+
+</script>
+</body>
+</html>
+
+debugger
+</script>
+
+</body>
+</html>
